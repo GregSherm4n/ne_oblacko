@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://kit.fontawesome.com/7239c06480.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header__body">
+            <a class="header__logo" href="/home">
+                <p>Не</p>&nbsp&nbsp&nbsp<p><i class="fas fa-cloud"></i></p>
+            </a>
+            <div class="button__header">
+                <div class="regis">
+                    <a href="/registration">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Регистрация
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="form__login">
+    <h1>Вход</h1>
+    <form th:action="@{/login}" method="POST">
+        <div class="input__form__login">
+            <input type="email" id="inputEmail" name="username" placeholder="E-mail"  required autofocus>
+        </div>
+        <div class="input__form__login">
+            <input type="password" id="inputPassword" name="password" placeholder="Пароль" required>
+        </div>
+        <div class="input__form__login">
+            <input type="submit" value="Войти">
+        </div>
+        <p class="error" th:if="${error}">Вы ввели неверную почту или пароль!</p>
+        <p></p>
+        <a href="#">Забыли пароль?</a>
+    </form>
+</div>
+</body>
+</html>

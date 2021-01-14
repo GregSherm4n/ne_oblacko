@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://kit.fontawesome.com/7239c06480.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header__body">
+            <a class="header__logo" href="/home">
+                <p>Не</p>&nbsp&nbsp&nbsp<p><i class="fas fa-cloud"></i></p>
+            </a>
+            <div class="button__header">
+                <div class="login">
+                    <a href="/login">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Войти
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="form__reg">
+    <h1>Регистрация</h1>
+    <form th:action="@{/registration}" method="POST" th:object="${form}">
+        <div class="input__form__reg">
+            <input type="text" placeholder="Логин" th:field="*{userLogin}" required autofocus>
+        </div>
+        <div class="input__form__reg">
+            <input type="text" placeholder="example@example.com" th:field="*{userEmail}" required autofocus>
+        </div>
+        <div class="input__form__reg">
+            <input type="password" placeholder="Пароль" th:field="*{userPassword}" required>
+        </div>
+        <div class="input__form__reg">
+            <input type="submit" value="Зарегистрироваться">
+        </div>
+        <div th:if="${error}"><a>Пользователь с такой почтой уже существует!</a></div>
+    </form>
+    <h1></h1>
+</div>
+</body>
+</html>

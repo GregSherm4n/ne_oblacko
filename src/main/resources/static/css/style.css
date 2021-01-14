@@ -1,0 +1,466 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+    line-height: 1.4;
+    background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(../img/17247709.jpg);
+);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 75px;
+    width: 100%;
+}
+
+.main {
+    margin: 0 auto;
+    padding: 90px;
+    height: 100%;
+}
+
+.container,
+.container-item {
+    max-width: 75%;
+    margin: 0 auto;
+    padding: 10px;
+    height: 100%;
+    position: relative;
+    z-index: 3;
+}
+
+.header__body,
+.container__header{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 3;
+}
+
+.header__logo {
+    position: relative;
+    display: flex;
+    flex: 0 0 50px;
+    z-index: 3;
+}
+
+a,
+a:active,
+a:visited,
+a:hover {
+    color: #f4f4f4;
+    text-decoration: none;
+}
+
+.header__logo p {
+    color: #f4f4f4;
+    font-size: 30px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button__header div {
+    display: inline-block;
+}
+
+.button__header a {
+    font-size: 15px;
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.login a,
+.admin a {
+    color: #2196f3;
+}
+
+.login a:hover {
+    color: #257784;
+    background: #2196f3;
+    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+    transition-delay: 1s;
+}
+
+.logout a span {
+    position: absolute;
+    display: block;
+}
+
+.login a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2196f3);
+}
+
+.login a:hover span:nth-child(1) {
+    left: 100%;
+    transition: 1s;
+}
+
+.login a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #2196f3);
+}
+
+.login a:hover span:nth-child(3) {
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+.login a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #2196f3);
+}
+
+.login a:hover span:nth-child(2) {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+.login a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #2196f3);
+}
+
+.logout a {
+    color: #e70505;
+}
+
+.logout a:hover {
+    color: #730303;
+    background: #e70505;
+    box-shadow: 0 0 10px #e70505, 0 0 40px #e70505, 0 0 80px #e70505;
+    transition-delay: 1s;
+}
+
+.logout a span {
+    position: absolute;
+    display: block;
+}
+
+.logout a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e70505);
+}
+
+.logout a:hover span:nth-child(1) {
+    left: 100%;
+    transition: 1s;
+}
+
+.logout a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #e70505);
+}
+
+.logout a:hover span:nth-child(3) {
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+.logout a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #e70505);
+}
+
+.logout a:hover span:nth-child(2) {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+.login a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #e70505);
+}
+
+.login a:hover span:nth-child(4) {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+.regis a {
+    color: #5AF516;
+}
+
+.regis a:hover {
+    color: #43B710;
+    background: #5AF516;
+    box-shadow: 0 0 10px #5AF516, 0 0 40px #5AF516, 0 0 80px #5AF516;
+    transition-delay: 1s;
+}
+
+.regis a span {
+    position: absolute;
+    display: block;
+}
+
+.regis a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #5AF516);
+}
+
+.regis a:hover span:nth-child(1) {
+    left: 100%;
+    transition: 1s;
+}
+
+.regis a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #5AF516);
+}
+
+.regis a:hover span:nth-child(3) {
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+.regis a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #5AF516);
+}
+
+.regis a:hover span:nth-child(2) {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+.regis a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #5AF516);
+}
+
+.regis a:hover span:nth-child(4) {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+.form__login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(30, 30, 30, .7);
+}
+
+.form__login h1,
+.form__reg h1 {
+    margin: 30px 200px;
+    padding: 0;
+    text-align: center;
+    color: #2196f3;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.input__form__login,
+.input__form__login button__header {
+    margin: 15px 40px;
+    text-align: center;
+}
+
+.input__form__login input {
+    padding: 10px;
+    width: 75%;
+    color: #f4f4f4;
+    font-size: 20px;
+    background: none;
+    outline: none;
+    border: 1px solid #f4f4f4;
+    box-sizing: border-box;
+}
+
+.input__form__login input[type="text"]:focus,
+.input__form__login input[type="password"]:focus {
+    border: 1px solid #2196f3;
+}
+
+.input__form__login input[type="submit"] {
+    margin-top: 20px;
+    color: #f4f4f4;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    background: #2196f3;
+    transition: .3s;
+}
+
+.input__form__login input[type="submit"]:hover {
+    background: deepskyblue;
+}
+
+.form__login a {
+    display: block;
+    padding: 0 0 30px;
+    text-align: center;
+    color: #f4f4f4;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.form__login a:hover {
+    color: #0fc3f5;
+}
+
+.form__reg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(30, 30, 30, .7);
+}
+
+.main h1 {
+    margin: 30px 200px;
+    padding: 0;
+    text-align: center;
+    color: #f4f4f4;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    border-bottom: 1px inset #696969;
+}
+.table th {
+    color: #f4f4f4;
+    font-size: 20px;
+    font-weight: bold;
+    border-left: 1px inset #696969;
+    border-right: 1px inset #696969;
+}
+.table td{
+    color: #f4f4f4;
+    font-size: 15px;
+    border-left: 1px inset #696969;
+    border-right: 1px inset #696969;
+    padding: 10px 0;
+}
+
+table td:first-child,
+table th:first-child{
+    border-left: none;
+}
+
+table td:last-child,
+table th:last-child {
+    border-right: none;
+}
+
+.input__form__reg,
+.input__form__reg button__header {
+    margin: 15px 40px;
+    text-align: center;
+}
+
+.input__form__reg input {
+    padding: 10px;
+    width: 75%;
+    color: #f4f4f4;
+    font-size: 20px;
+    background: none;
+    outline: none;
+    border: 1px solid #f4f4f4;
+    box-sizing: border-box;
+}
+
+.input__form__reg input[type="text"]:focus,
+.input__form__reg input[type="password"]:focus {
+    border: 1px solid #2196f3;
+}
+
+.input__form__reg input[type="submit"] {
+    margin-top: 20px;
+    color: #f4f4f4;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    background: #2196f3;
+    transition: .3s;
+}
+
+.input__form__reg input[type="submit"]:hover {
+    background: deepskyblue;
+}
+
+.error {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+.storage__info {
+    width: 300px;
+    color: #f4f4f4;
+    display: inline-block;
+}
+.upload {
+    display: inline-block;
+}
+.upload ul li {
+    list-style-type: none;
+    margin: 10px 0;
+}

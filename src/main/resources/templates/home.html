@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Не Облако</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script>
+        $(function () {
+            function deleteFile(fileId) {
+                $.ajax({
+                    type: "POST",
+                    url: "/file/delete/" + fileId,
+                    success: () => location.reload()
+                });
+
+            }
+
+            function updateFile(fileId) {
+                $.ajax({
+                    type: "POST",
+                    url: "/file/update/" + fileId,
+                    success: () => {
+                        alert("Ссылка на файл обновлена.");
+                        location.reload();
+                    }
+                });
+
+            }
+
+            $('.deleteButton').each((id, el) => {
+                $(el).click(() => deleteFile(el.value))
+            })
+            $('.updateButton').each((id, el) => {
+                $(el).click(() => updateFile(el.value))
+            })
+        })
+    </script>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header__body">
+            <a class="header__logo" href="/home">
+                <p>Не</p>&nbsp&nbsp&nbsp<p><i class="fas fa-cloud"></i></p>
+            </a>
+            <div class="button__header">
+                <div class="admin">
+                    <a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin">Администрирование</a>
+                </div>
+                <div class="logout">
+                    <a href="/logout">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Выход
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="main">
+    <div class="container">
+        <div class="container__header">
+            <div class="storage__info">
+                &nbsp
+                <h3 th:text="'Ваш тариф: ' +  ${tariff}"></h3>
+                &nbsp
+                <h3>Заполнено:</h3>
+                <h3 th:text="${count}">%</h3>
+            </div>
+            <div class="upload">
+                <form th:action="@{/file/upload}" method="POST"
+                      enctype="multipart/form-data" class="form-inline">
+                    <ul>
+                        <li><input type="file" name="uploadFile"/></li>
+                        <li><input type="submit" class="btn btn-primary"/></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    &nbsp
+    &nbsp
+    &nbsp
+    <h1>Ваши файлы</h1>
+    &nbsp
+    &nbsp
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Имя файла</th>
+            <th>Размер, КБ</th>
+            <th>Поделиться</th>
+            <th>Обновить</th>
+            <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="file : ${files}">
+            <td th:text="${file.getFileName()}" align="center"></td>
+            <td th:text="${file.getSize()}" align="center"></td>
+            <td align="center"><a href="#"
+                                  th:attr="data-content=@{localhost:8080/download/{id}(id=${file.getFileUUID()})}">
+                <i class="fas fa-download"></i>
+            </a>
+            </td>
+            <td align="center">
+                <button class="update" th:value="${file.getFileUUID()}">Обновить ссылку на файл</button>
+            </td>
+            <td align="center">
+                <button class="delete" th:value="${file.getFileUUID()}">Удалить файл</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

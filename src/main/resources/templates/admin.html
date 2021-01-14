@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Админка</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://kit.fontawesome.com/7239c06480.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header__body">
+            <a class="header__logo" href="/home">
+                <p>Не</p>&nbsp&nbsp&nbsp<p><i class="fas fa-cloud"></i></p>
+            </a>
+            <div class="button__header">
+                <div sec:authorize="hasRole('ROLE_admin')" class="admin">
+                    <a href="/admin">Администрирование</a>
+                </div>
+                <div class="logout">
+                    <a href="/logout">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Выход
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="main">
+    <div class="container">
+        <h1>Список пользователей</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>Почта</th>
+                <th>Имя</th>
+                <th>Роль</th>
+                <th>Тариф</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.getUserId()}" align=center></td>
+                <td th:text="${user.getUserEmail()}" align=center></td>
+                <td th:text="${user.getUserLogin()}" align=center></td>
+                <td th:text="${user.getUserRole()}" align=center></td>
+                <td th:text="${user.getTariff().getTariffName()}" align=center></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
